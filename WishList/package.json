@@ -1,7 +1,7 @@
 {
-  "name": "genie",
+  "name": "wishlist",
   "version": "1.0.0",
-  "description": "Genie: An Ionic project",
+  "description": "WishList: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
