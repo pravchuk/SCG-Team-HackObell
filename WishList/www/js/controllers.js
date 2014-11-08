@@ -72,7 +72,7 @@ angular.module('starter.controllers', [])
 .controller('LoginCtrl', function($scope,$http) {
 	//alert("hi");
 	var recDiv = document.getElementById('recomended');
-	var dummy = [{name : "pallal",company : "PNP", emi : "14.5%"},{name : "pallal",company : "PNP", emi : "14.5%"}];
+	var dummy = [{id:0,name : "pallal",company : "PNP", emi : "14.5%"},{id:1,name : "pallal",company : "PNP", emi : "14.5%"}];
 	//$scope.results = dummy;
 	$scope.recomended = dummy;
 	$scope.results = [];
@@ -93,6 +93,10 @@ angular.module('starter.controllers', [])
 	
 	$scope.add = function(i){
 		$scope.wishlist.push($scope.results[i]);
+		console.log(i,$scope.results[i]);
+	}
+	$scope.addr = function(i){
+		$scope.wishlist.push($scope.recomended[i]);
 		console.log(i,$scope.results[i]);
 	}
 	
