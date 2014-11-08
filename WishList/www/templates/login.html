@@ -59,13 +59,13 @@
 		</a>
 	</div>
 	<div id = "recomended" style ="display:block">
-		<div class="card box-recommended"  ng-repeat="i in recomended">
+		<div class="card box-recommended"  ng-repeat="i in recomended track by $index" ng-click="addr({{i.id}});closeLogin();">
 			<a class="item item-thumbnail-left" href="#">
 			  <img src="img/quadcopter.jpg">
-			  <h2>Quadcopter</h2>
-			  <p>Nine Inch Nails</p>
+			  <h2>{{i.name}}</h2>
+			  <p>{{i.company}}</p>
 			  <span class="recommended">Recommended</span>
-			  <span class="emi">EMI: 12%</span>
+			  <span class="emi">EMI: {{i.emi}}</span>
 			</a>
 		</div
 	</div>
