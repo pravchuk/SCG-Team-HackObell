@@ -1,5 +1,7 @@
 <?php  
 // Config /*
+header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *");
 extract($_GET);
 //sleep(1);
 echo '[{"id":0,"name":"',$query,'","company":"goPUC","emi":"3.14"},{"id":1,"name":"',$query,'","company":"goPUC","emi":"3.14"}]'; 

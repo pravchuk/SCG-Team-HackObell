@@ -127,7 +127,7 @@ angular.module('starter.controllers', [])
 		//alert("http://192.168.43.57/test.php?query="+ev.target.value);
 		//$scope.xhr1.send();
 		else 
-		$http.get("http://localhost/test.php?query="+ev.target.value).success(handler);
+		$http.get("http://localhost:8080/test.php?query="+ev.target.value).success(handler);
 		
 	}
 	
