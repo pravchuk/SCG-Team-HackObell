@@ -7,6 +7,13 @@
   <author email="hi@ionicframework" href="http://ionicframework.com/">
       Ionic Framework Team
     </author>
+
+  <!--Android Icons-->
+  <icon src="icons/android/icon-36-ldpi.png" />
+  <icon src="icons/android/icon-48-mdpi.png" />
+  <icon src="icons/android/icon-72-hdpi.png" />
+  <icon src="icons/android/icon-96-xhdpi.png" />
+
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
