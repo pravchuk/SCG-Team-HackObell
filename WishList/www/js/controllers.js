@@ -99,6 +99,11 @@ angular.module('starter.controllers', [])
 		$scope.wishlist.push($scope.recomended[i]);
 		console.log(i,$scope.results[i]);
 	}
+	$scope.addRemote = function(sku){
+		var USER_ID = 1;
+		$http.get("http://localhost/test.php?uid=1&sku="+sku).error(setTimeout(1800000,function($scope.addRemote(sku))));
+		//console.log(i,$scope.results[i]);
+	}
 	
 	var handler = function(data)
 	{
@@ -131,7 +136,7 @@ angular.module('starter.controllers', [])
 		//alert("http://192.168.43.57/test.php?query="+ev.target.value);
 		//$scope.xhr1.send();
 		else 
-		$http.get("http://localhost:8080/test.php?query="+ev.target.value).success(handler);
+		$http.get("http://localhost/test.php?query="+ev.target.value).success(handler);
 		
 	}
 	
