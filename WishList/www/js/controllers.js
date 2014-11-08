@@ -1,7 +1,19 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $ionicModal, $timeout) {
-	// Form data for the login modal
+
+	$scope.allElements = []
+
+	$scope.addCancelButton = function(i){
+		$scope.allElements[i] = true;
+	}
+
+	$scope.removeSlide = function(i){
+		$scope.wishlist.splice(i,1);
+		$scope.allElements[i] = false;
+	}
+
+
   $scope.loginData = {};
 
   // Create the login modal that we will use later
