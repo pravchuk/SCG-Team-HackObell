@@ -1,5 +1,0 @@
-
-
-
-//testing
-$document.ready(sPopulateText);

@@ -42,7 +42,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-});
+})
+
+.controller('ApplyEMI', function($scope) {
+})
 
 .controller('Login', function($scope) {
 	$scope.config = {
@@ -51,7 +54,7 @@ angular.module('starter.controllers', [])
 
 	$scope.results = [];
 	var dummy = [{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"}]
-	$scope function sPopulateText(data)
+	$scope.sPopulateText = function(data)
 	{	
 		var s = "";
 		for(var i in data)
