@@ -43,3 +43,35 @@ angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope) {
 });
+
+.controller('Login', function($scope) {
+	$scope.config = {
+			server : 'localhost'
+		}
+
+	$scope.results = [];
+	var dummy = [{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"}]
+	$scope function sPopulateText(data)
+	{	
+		var s = "";
+		for(var i in data)
+		{
+			s = '<div class="card">\
+					<a class="item item-thumbnail-left" href="#">\
+					  <img src="img/quadcopter.jpg">\
+					  <h2>'+data[i].name+'</h2>\
+					  <p>Nine Inch Nails</p>\
+					  <span class="emi">EMI: 12%</span>\
+					</a>\
+				</div>';
+			$scope.results.append(s);
+		}
+		
+	}
+	
+	sPopulateText();
+	
+	
+	
+	
+});
