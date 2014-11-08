@@ -91,30 +91,39 @@ angular.module('starter.controllers', [])
 	}
 	*/
 	
-	$scope.add = function(i){
-		$scope.wishlist.push($scope.results[i]);
-		console.log(i,$scope.results[i]);
-	}
-	$scope.addr = function(i){
-		$scope.wishlist.push($scope.recomended[i]);
-		console.log(i,$scope.results[i]);
-	}
+	
 	$scope.addRemote = function(sku){
 		var USER_ID = 1;
-		$http.get("http://localhost/test.php?uid=1&sku="+sku).error(setTimeout(1800000,function($scope.addRemote(sku))));
+		//$http.get("http://localhost/test.php?uid=1&sku="+sku).error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
+		$http.get("https://hackobell.pythonanywhere.com/add/?id=1&sku="+sku);//;.error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
 		//console.log(i,$scope.results[i]);
 	}
+	
+	$scope.add = function(i){
+		$scope.wishlist.push($scope.results[i-1]);
+		$scope.addRemote($scope.results[i-1]['sku'])
+		console.log(i,$scope.results[i-1]);
+	}
+	
+	$scope.addr = function(i){
+		$scope.wishlist.push($scope.recomended[i]);
+		$scope.addRemote($scope.results[i]['sku'])
+		console.log(i,$scope.results[i]);
+	}
+	
 	
 	var handler = function(data)
 	{
 		//alert('hi');
 		$scope.disable();
 		//console.log(data);
-		//for(var i in data)
-		//{
-			$scope.results = data;
-			//console.log("Check : ",$scope.results);
-		//}
+		$scope.results = [];
+		for(var i in data)
+		{
+			//$scope.results = data;
+			$scope.results.push(data[i][parseInt(i)]);
+			console.log("Check : ",JSON.stringify(data[i]));
+		}
 		//functionality for updating the results;
 	}
 
@@ -136,7 +145,8 @@ angular.module('starter.controllers', [])
 		//alert("http://192.168.43.57/test.php?query="+ev.target.value);
 		//$scope.xhr1.send();
 		else 
-		$http.get("http://localhost/test.php?query="+ev.target.value).success(handler);
+		//$http.get("http://localhost/test.php?query="+ev.target.value).success(handler);   this is for localhost
+		$http.get("https://hackobell.pythonanywhere.com/auto/?name="+ev.target.value).success(handler);
 		
 	}
 	
@@ -144,5 +154,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ApplyEMI', function($scope) {
-  
+
 });
