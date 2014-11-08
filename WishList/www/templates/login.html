@@ -49,7 +49,8 @@
       <span class="emi">EMI: 12%</span>
     </a>
 </div-->
-	<div class="card" ng-repeat="i in results  track by $index">
+	
+	<div class="card" ng-repeat="i in results  track by $index" ng-click="add({{i.id}});closeLogin();" >
 		<a class="item item-thumbnail-left" href="#">
 			<img src="img/quadcopter.jpg">
 			<h2>{{i.name}}</h2>
@@ -58,7 +59,7 @@
 		</a>
 	</div>
 	<div id = "recomended" style ="display:block">
-		<div class="card box-recommended" ng-click="keyPressed1();" ng-repeat="i in recomended">
+		<div class="card box-recommended"  ng-repeat="i in recomended">
 			<a class="item item-thumbnail-left" href="#">
 			  <img src="img/quadcopter.jpg">
 			  <h2>Quadcopter</h2>

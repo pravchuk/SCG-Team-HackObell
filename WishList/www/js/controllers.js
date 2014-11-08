@@ -11,6 +11,12 @@ angular.module('starter.controllers', [])
     $scope.modal = modal;
   });
   
+  //UIFUNCTION - Pallal
+	$scope.wishlist = [];
+	
+  
+  //
+  
   
 
   // Triggered in the login modal to close it
@@ -85,7 +91,10 @@ angular.module('starter.controllers', [])
 	}
 	*/
 	
-
+	$scope.add = function(i){
+		$scope.wishlist.push($scope.results[i]);
+		console.log(i,$scope.results[i]);
+	}
 	
 	var handler = function(data)
 	{

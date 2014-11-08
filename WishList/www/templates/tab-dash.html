@@ -1,21 +1,23 @@
 <ion-view title="Genie" class="header-genie">
   <ion-content class="padding">
-  <div class="card box-good-buy">
+  <!--div class="card box-good-buy">
     <a class="item item-thumbnail-left" href="#/tab/applyemi">
       <img src="img/quadcopter.jpg">
       <h2>Quadcopter</h2>
       <p>Nine Inch Nails</p>
       <span class="emi">EMI: 12%</span>
     </a>
-</div>
-<div class="card">
+</div-->
+<div class="card" ng-repeat="i in wishlist track by $index">
     <a class="item item-thumbnail-left" href="#">
       <img src="img/quadcopter.jpg">
-      <h2>Quadcopter</h2>
-      <p>Nine Inch Nails</p>
-      <span class="emi">EMI: 12%</span>
+      <h2>{{i.name}}</h2>
+      <p>{{i.company}}</p>
+      <span class="emi">EMI: {{i.emi}}</span>
     </a>
 </div>
+
+
   <button ng-click="login();" class="button button-royal button-full">
   + Add</button>
   
