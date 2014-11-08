@@ -46,6 +46,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'DashCtrl'
         }
       }
+    })
+    .state('tab.applyemi', {
+      url: '/applyemi',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/apply-emi.html',
+          controller: 'ApplyEMI'
+        }
+      }
     });
 
     // .state('tab.friends', {

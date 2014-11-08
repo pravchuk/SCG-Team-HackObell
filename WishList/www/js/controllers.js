@@ -31,6 +31,22 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.doBarcode = function(){
+	  	cordova.plugins.barcodeScanner.scan(
+	      function (result) {
+	          alert("We got a barcode\n" +
+	                "Result: " + result.text + "\n" +
+	                "Format: " + result.format + "\n" +
+	                "Cancelled: " + result.cancelled);
+	      }, 
+	      function (error) {
+	          alert("Scanning failed: " + error);
+	      }
+	   );
+//alert("hi");
+  }
+
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -45,36 +61,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ApplyEMI', function($scope) {
-})
 
-.controller('Login', function($scope) {
-	$scope.config = {
-			server : 'localhost'
-		}
-
-	$scope.results = [];
-	var dummy = [{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"},{name : "pallal"}]
-	$scope.sPopulateText = function(data)
-	{	
-		var s = "";
-		for(var i in data)
-		{
-			s = '<div class="card">\
-					<a class="item item-thumbnail-left" href="#">\
-					  <img src="img/quadcopter.jpg">\
-					  <h2>'+data[i].name+'</h2>\
-					  <p>Nine Inch Nails</p>\
-					  <span class="emi">EMI: 12%</span>\
-					</a>\
-				</div>';
-			$scope.results.append(s);
-		}
-		
-	}
-	
-	sPopulateText();
-	
-	
-	
-	
 });
