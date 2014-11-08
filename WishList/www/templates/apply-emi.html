@@ -1,3 +1,21 @@
+<script>
+  function emi_kodo(percentage, amount){
+    a = new Array();
+    r = percentage/12/100;
+    b = [3, 6, 12, 36, 60];
+    for(i = 0; i<b.length; i++){
+      var x ;
+      x = (amount*r*(Math.pow((1+r), b[i])))/(Math.pow((1+r), b[i])-1)
+      a[i] = x;
+    }
+    return a;
+  }
+  c = emi_kodo(10, 10000);
+  for(i = 0; i<c.length; i++){
+    alert(c[i]);
+  }
+</script>
+
 <ion-view title="Genie">
   <ion-content class="padding">
     <div class="list card">
