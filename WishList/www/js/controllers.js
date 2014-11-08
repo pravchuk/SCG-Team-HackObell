@@ -10,6 +10,8 @@ angular.module('starter.controllers', [])
   }).then(function(modal) {
     $scope.modal = modal;
   });
+  
+  
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
@@ -57,7 +59,70 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
+
 .controller('AccountCtrl', function($scope) {
+})
+
+.controller('LoginCtrl', function($scope,$http) {
+	//alert("hi");
+	var recDiv = document.getElementById('recomended');
+	var dummy = [{name : "pallal",company : "PNP", emi : "14.5%"},{name : "pallal",company : "PNP", emi : "14.5%"}];
+	//$scope.results = dummy;
+	$scope.recomended = dummy;
+	$scope.results = [];
+	
+	
+	/*
+	$scope.xhr1 = new XMLHttpRequest();
+	$scope.xhr1.onreadystatechange = function ()
+	{
+		if($scope.xhr1.readyState == 4 && $scope.xhr1.status==200)
+		{
+		//alert("xhr success"+$scope.xhr1.readyState);
+			$scope.disable();
+			$scope.results = JSON.parse($scope.xhr1.responseText);
+		}//functionality for updating the results;
+	}
+	*/
+	
+
+	
+	var handler = function(data)
+	{
+		//alert('hi');
+		$scope.disable();
+		//console.log(data);
+		//for(var i in data)
+		//{
+			$scope.results = data;
+			//console.log("Check : ",$scope.results);
+		//}
+		//functionality for updating the results;
+	}
+
+	$scope.disable = function(){
+		var recDiv = document.getElementById('recomended');
+		recDiv.style.display = "none";
+	}
+	
+	$scope.keyPressed1 = function(ev)
+	{
+		//alert("hi");
+		 ev = ev || event;
+		 if(event.target.value=='') {var recDiv = document.getElementById('recomended');
+			recDiv.style.display="block";
+			$scope.results =[];
+		 } 
+		//$scope.xhr1.abort();
+		//$scope.xhr1.open("GET","http://localhost/test.php?query="+ev.target.value,true);
+		//alert("http://192.168.43.57/test.php?query="+ev.target.value);
+		//$scope.xhr1.send();
+		else 
+		$http.get("http://localhost/test.php?query="+ev.target.value).success(handler);
+		
+	}
+	
+	
 })
 
 .controller('ApplyEMI', function($scope) {

@@ -1,4 +1,4 @@
-<div class="modal">
+<div class="modal" ng-controller="LoginCtrl">
   <ion-header-bar>
     <!-- <h1 class="title">Login</h1>
     <div class="buttons">
@@ -8,7 +8,7 @@
       <button ng-click="doBarcode();" class="button button-royal ion-levels" style="margin-right:3px;"></button>
   <label class="item-input-wrapper">
     <i class="icon ion-ios7-search placeholder-icon"></i>
-    <input type="search" placeholder="Search">
+    <input type="search" placeholder="Search" ng-keyup = "keyPressed1(event);">
   </label>
   <button class="button button-clear" ng-click="closeLogin();">
     Cancel
@@ -31,7 +31,7 @@
         </label>
       </div>
     </form> -->
-    <div class="card box-recommended">
+    <!--div class="card box-recommended">
     <a class="item item-thumbnail-left" href="#">
       <img src="img/quadcopter.jpg">
       <h2>Quadcopter</h2>
@@ -48,6 +48,25 @@
       <span class="recommended">Recommended</span>
       <span class="emi">EMI: 12%</span>
     </a>
-</div>
+</div-->
+	<div class="card" ng-repeat="i in results  track by $index">
+		<a class="item item-thumbnail-left" href="#">
+			<img src="img/quadcopter.jpg">
+			<h2>{{i.name}}</h2>
+			<p>{{i.company}}</p>
+			<span class="emi">EMI: {{i.emi}}</span>
+		</a>
+	</div>
+	<div id = "recomended" style ="display:block">
+		<div class="card box-recommended" ng-click="keyPressed1();" ng-repeat="i in recomended">
+			<a class="item item-thumbnail-left" href="#">
+			  <img src="img/quadcopter.jpg">
+			  <h2>Quadcopter</h2>
+			  <p>Nine Inch Nails</p>
+			  <span class="recommended">Recommended</span>
+			  <span class="emi">EMI: 12%</span>
+			</a>
+		</div
+	</div>
   </ion-content>
 </div>
