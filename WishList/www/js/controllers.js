@@ -187,13 +187,21 @@ angular.module('starter.controllers', [])
     return a;
   }
   c = emi_kodo(10, 10000);
-  
 	
-	
+	/*$scope.setItems(a) = function()
+	{
+		$scope.item = {};
+		$scope.item.name = $scope.wishlist[a].name;
+		$scope.item.description = "This is description";
+		$scope.item.emi = $scope.wishlist[a].emi;
+		$scope.item.offers = emi_kodo($scope.wishlist[a].emi,100000);
+	}
+	/**/
 	$scope.item = {};
-	$scope.item.name = "Prafulla";
-	$scope.item.description = "des";
-	$scope.item.emi = "10";
+	$scope.item.name = "Toyoto Innova";
+	$scope.item.description = "This is an awesome car.";
+	$scope.item.emi = "12";
+	$scope.item.url = "https://hackobell.pythonanywhere.com/media/images/innova.jpg";
 	$scope.item.offers = c;//[{name : "Test",emi : "2000"},{name : "Test",emi : "2000"},{name : "Test",emi : "2000"}];
 	
 });

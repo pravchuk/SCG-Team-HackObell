@@ -52,7 +52,7 @@
 	
 	<div class="card" ng-repeat="i in results  track by $index" ng-click="add({{i.id}});closeLogin();" >
 		<a class="item item-thumbnail-left" href="#">
-			<img src="img/quadcopter.jpg">
+			<img src="{{i.url}}">
 			<h2>{{i.name}}</h2>
 			<p>{{i.company}}</p>
 			<span class="emi">EMI: {{i.emi}}</span>
