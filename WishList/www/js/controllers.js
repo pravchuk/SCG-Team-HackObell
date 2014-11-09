@@ -92,7 +92,7 @@ angular.module('starter.controllers', [])
 .controller('LoginCtrl', function($scope,$http) {
 	//alert("hi");
 	var recDiv = document.getElementById('recomended');
-	var dummy = [{id:0,name : "pallal",company : "PNP", emi : "14.5%"},{id:1,name : "pallal",company : "PNP", emi : "14.5%"}];
+	var dummy = [{id:0,name : "QuadCopter",company : "PNP", emi : "14.5%",url:"img/quadcopter.jpg"},{url :"http://image.alienware.com/images/galleries/gallery-shot_laptops_17_03.jpg";id:1,name : "Alienware 1+1",company : "Dell", emi : "14.5%"}];
 	//$scope.results = dummy;
 	$scope.recomended = dummy;
 	$scope.results = [];
