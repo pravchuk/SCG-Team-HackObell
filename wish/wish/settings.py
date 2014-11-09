@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://hackobell.pythonanywhere.com']
 
 
 # Application definition
@@ -51,6 +51,9 @@ ROOT_URLCONF = 'wish.urls'
 
 WSGI_APPLICATION = 'wish.wsgi.application'
 
+
+MEDIA_ROOT = os.path.dirname(os.path.dirname(__file__)+os.pardir+'media/')
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
