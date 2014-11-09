@@ -59,7 +59,7 @@
 		</a>
 	</div>
 	<div id = "recomended" style ="display:block">
-		<div class="card box-recommended"  ng-repeat="i in recomended track by $index" ng-click="addr({{i.id}});closeLogin();">
+		<div class="card box-recommended"  ng-repeat="i in recomended track by $index" ng-click="closeLogin();addr({{i.id}}); ">
 			<a class="item item-thumbnail-left" href="#">
 			  <img src="img/quadcopter.jpg">
 			  <h2>{{i.name}}</h2>

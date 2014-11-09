@@ -10,9 +10,17 @@ angular.module('starter.controllers', [])
 
 	$scope.removeSlide = function(i){
 		$scope.wishlist.splice(i,1);
+		$scope.remRemote($scope.wishlist[i]);
 		$scope.allElements[i] = false;
 	}
 
+	
+	$scope.remRemote = function(sku){
+		var USER_ID = 1;
+		//$http.get("http://localhost/test.php?uid=1&sku="+sku).error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
+		$http.get("https://hackobell.pythonanywhere.com/delete/?id=1&sku="+sku).success(function(data){alert(data.message);});//;.error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
+		//console.log(i,$scope.results[i]);
+	}
 
   $scope.loginData = {};
 
@@ -107,7 +115,7 @@ angular.module('starter.controllers', [])
 	$scope.addRemote = function(sku){
 		var USER_ID = 1;
 		//$http.get("http://localhost/test.php?uid=1&sku="+sku).error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
-		$http.get("https://hackobell.pythonanywhere.com/add/?id=1&sku="+sku);//;.error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
+		$http.get("https://hackobell.pythonanywhere.com/add/?id=1&sku="+sku).success(function(data){alert(data.message);});//;.error(function(){setTimeout(1800000,function($scope.addRemote(sku)))});
 		//console.log(i,$scope.results[i]);
 	}
 	
@@ -166,5 +174,26 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ApplyEMI', function($scope) {
-
+	
+	function emi_kodo(percentage, amount){
+    a = new Array();
+    r = percentage/12/100;
+    b = [3, 6, 12, 36, 60];
+    for(i = 0; i<b.length; i++){
+      var x ;
+      x = (amount*r*(Math.pow((1+r), b[i])))/(Math.pow((1+r), b[i])-1)
+      a[i] = {emi:x,name : b[i]};
+    }
+    return a;
+  }
+  c = emi_kodo(10, 10000);
+  
+	
+	
+	$scope.item = {};
+	$scope.item.name = "Prafulla";
+	$scope.item.description = "des";
+	$scope.item.emi = "10";
+	$scope.item.offers = c;//[{name : "Test",emi : "2000"},{name : "Test",emi : "2000"},{name : "Test",emi : "2000"}];
+	
 });

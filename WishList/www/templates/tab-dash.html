@@ -10,7 +10,7 @@
       <span class="emi">EMI: 12%</span>
     </a>
 </div-->
-    <div class="card" ng-repeat="i in wishlist track by $index" on-swipe-left="addCancelButton($index);">
+    <div class="card" ng-repeat="i in wishlist track by $index" ng-click="" on-swipe-left="addCancelButton($index);">
         <a class="item item-thumbnail-left" href="#/tab/applyemi">
           <img src="img/quadcopter.jpg">
           <h2>{{i.name}}</h2>
